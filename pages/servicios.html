@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios · PET Bites</title>
+  <meta name="description" content="Planes nutricionales, seguimiento y retroalimentación experta para tu mascota. Conoce todos los servicios de PET Bites." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <style>
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 60px 0;
+      border-bottom: 2px dashed var(--light-teal);
+    }
+    .service-block:last-child { border-bottom: none; }
+    .service-block.reverse { direction: rtl; }
+    .service-block.reverse > * { direction: ltr; }
+    .service-visual {
+      border-radius: 28px;
+      background: var(--light-teal);
+      padding: 60px 40px;
+      text-align: center;
+      font-size: 80px;
+    }
+    @media(max-width:768px) {
+      .service-block { grid-template-columns: 1fr; direction: ltr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div id="wa-placeholder"></div>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span style="font-size:56px;display:block;margin-bottom:16px;">🥗</span>
+    <h1>Nuestros Servicios</h1>
+    <p>Todo lo que necesitas para que tu mascota viva con la mejor nutrición, energía y salud.</p>
+  </section>
+
+  <!-- SERVICIOS DETALLADOS -->
+  <section style="background:var(--cream);">
+    <div class="container" style="max-width:1000px;">
+
+      <!-- Servicio 1 -->
+      <div class="service-block">
+        <div>
+          <span class="eyebrow" style="font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:12px;">Servicio principal</span>
+          <h2 style="font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:16px;line-height:1.2;">Plan Nutricional <span style="color:var(--teal);">Personalizado</span></h2>
+          <p style="color:#555;line-height:1.8;margin-bottom:20px;">Diseñamos un plan alimenticio completo basado en el análisis individual de tu mascota. Consideramos especie, raza, edad, peso, nivel de actividad, condición de salud y preferencias alimenticias.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Análisis de perfil nutricional completo</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Cantidades y frecuencias precisas</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Adaptación a condiciones de salud especiales</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Revisiones y ajustes periódicos</li>
+          </ul>
+          <a href="registro.html" class="btn-primary">Comenzar ahora →</a>
+        </div>
+        <div class="service-visual">🥗</div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="service-block reverse">
+        <div>
+          <span class="eyebrow" style="font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:12px;">Seguimiento activo</span>
+          <h2 style="font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:16px;line-height:1.2;">Retroalimentación <span style="color:var(--teal);">Continua</span></h2>
+          <p style="color:#555;line-height:1.8;margin-bottom:20px;">El especialista Pierre Monasterios realiza un seguimiento activo de cómo se está alimentando tu mascota. No solo entregamos el plan: lo monitoreamos y ajustamos contigo.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Seguimiento semanal del progreso</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Ajuste del plan según evolución</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Comunicación directa por WhatsApp</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Informes de evolución nutricional</li>
+          </ul>
+          <a href="https://wa.me/59178855799" target="_blank" class="btn-primary">📱 Hablar con el especialista</a>
+        </div>
+        <div class="service-visual" style="background:rgba(254,130,2,0.12);">📊</div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="service-block">
+        <div>
+          <span class="eyebrow" style="font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange);display:block;margin-bottom:12px;">Bienestar integral</span>
+          <h2 style="font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:16px;line-height:1.2;">Suplementación <span style="color:var(--teal);">Guiada</span></h2>
+          <p style="color:#555;line-height:1.8;margin-bottom:20px;">Complementamos el plan nutricional con recomendaciones de suplementos naturales adaptados a las necesidades específicas de tu mascota para optimizar su bienestar completo.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Vitaminas y minerales esenciales</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Omega-3 para pelaje y articulaciones</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Probióticos para salud digestiva</li>
+            <li style="display:flex;align-items:center;gap:10px;font-weight:700;color:#444;"><span style="background:var(--light-teal);color:var(--teal);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">✓</span>Antioxidantes para longevidad</li>
+          </ul>
+          <a href="registro.html" class="btn-primary">Solicitar evaluación →</a>
+        </div>
+        <div class="service-visual">💊</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section style="background:white;">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Así trabajamos</span>
+        <h2>El proceso <span>completo</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>Consulta Inicial</h4>
+          <p>Cuéntanos todo sobre tu mascota: especie, raza, edad, peso, hábitos y estado de salud.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>Diagnóstico Nutricional</h4>
+          <p>Analizamos su perfil completo para identificar necesidades y oportunidades de mejora.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>Diseño del Plan</h4>
+          <p>Creamos un plan personalizado con alimentos, cantidades, frecuencias y suplementos.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>Seguimiento Activo</h4>
+          <p>Monitoreamos el progreso y ajustamos el plan en tiempo real con retroalimentación directa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS PILLS -->
+  <section style="background:var(--light-teal);text-align:center;">
+    <div class="container" style="max-width:900px;">
+      <h2 style="font-family:'Fredoka One',cursive;font-size:2.2rem;margin-bottom:32px;">¿Qué logra tu mascota con PET Bites?</h2>
+      <div>
+        <span class="benefit-pill">⚡ Más energía</span>
+        <span class="benefit-pill">✨ Pelaje brillante</span>
+        <span class="benefit-pill">🦴 Huesos fuertes</span>
+        <span class="benefit-pill">🌿 Mejor digestión</span>
+        <span class="benefit-pill">🏃 Peso ideal</span>
+        <span class="benefit-pill">💤 Mejor sueño</span>
+        <span class="benefit-pill">🛡️ Sistema inmune</span>
+        <span class="benefit-pill">❤️ Corazón sano</span>
+        <span class="benefit-pill">🧠 Función cognitiva</span>
+        <span class="benefit-pill">🎉 Más años de vida</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--orange);text-align:center;padding:80px 24px;">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;margin-bottom:16px;">¿Tu mascota merece lo mejor, verdad?</h2>
+    <p style="color:rgba(255,255,255,0.9);font-size:18px;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;">Comienza con nosotros hoy. Regístrate y recibe tu evaluación nutricional personalizada.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="registro.html" class="btn-secondary" style="border-color:white;color:white;">🐾 Registrar mascota</a>
+      <a href="https://wa.me/59178855799" target="_blank" class="btn-primary" style="background:white;color:var(--orange);">📱 WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

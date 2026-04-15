@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membresía · PET Bites</title>
+  <meta name="description" content="Hazte miembro PET Bites y obtén beneficios exclusivos, seguimiento prioritario y mucho más para el bienestar de tu mascota." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <style>
+    .loyalty-levels {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .loyalty-badge {
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .compare-table th {
+      padding: 20px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 18px;
+    }
+    .compare-table td {
+      padding: 16px 20px;
+      border-top: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #555;
+    }
+    .compare-table tr:nth-child(even) td { background: var(--cream); }
+    .compare-table .check-yes { color: var(--teal); font-size: 20px; text-align: center; }
+    .compare-table .check-no { color: #ccc; font-size: 20px; text-align: center; }
+    .compare-table th:first-child, .compare-table td:first-child { text-align: left; font-weight: 700; color: #333; }
+    .th-free { background: var(--cream); color: var(--black); }
+    .th-basic { background: var(--light-teal); color: var(--teal); }
+    .th-pro { background: var(--teal); color: white; }
+    .th-premium { background: var(--orange); color: white; }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div id="wa-placeholder"></div>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="background:linear-gradient(135deg, var(--orange) 0%, #e07000 100%);">
+    <span style="font-size:56px;display:block;margin-bottom:16px;">⭐</span>
+    <h1>Membresía PET Bites</h1>
+    <p>Hazte miembro y desbloquea beneficios exclusivos para el bienestar de tu mascota. Cuanto más te comprometes, más obtienes.</p>
+  </section>
+
+  <!-- POR QUÉ MEMBRESÍA -->
+  <section style="background:var(--cream);">
+    <div class="container" style="max-width:960px;">
+      <div class="section-header">
+        <span class="eyebrow">¿Por qué unirte?</span>
+        <h2>La membresía que <span>fideliza</span> el cuidado</h2>
+        <p>No solo compras un servicio. Construyes una relación continua con el bienestar de tu mascota.</p>
+      </div>
+      <div class="card-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">💰</span>
+          <h3>Ahorra en cada servicio</h3>
+          <p>Los miembros acceden a descuentos exclusivos en todos los planes y servicios de PET Bites.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">⚡</span>
+          <h3>Atención prioritaria</h3>
+          <p>Tu mascota siempre primero. Los miembros reciben respuestas y atención con prioridad máxima.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">📈</span>
+          <h3>Seguimiento profundo</h3>
+          <p>Informes detallados de evolución nutricional y ajustes proactivos del plan de tu mascota.</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <span class="card-icon">🎁</span>
+          <h3>Beneficios sorpresa</h3>
+          <p>Los miembros reciben bonos, productos y acceso anticipado a nuevos servicios y programas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section style="background:white;">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Planes disponibles</span>
+        <h2>Elige tu <span>membresía</span></h2>
+        <p>Desde acceso gratuito hasta nuestra experiencia premium. Siempre hay un plan perfecto para ti.</p>
+      </div>
+      <div class="membership-grid">
+
+        <!-- FREE -->
+        <div class="mem-card">
+          <div class="mem-plan">🐾 Explorador</div>
+          <div class="mem-price">Bs. <sup></sup>0</div>
+          <div class="mem-period">Gratis para siempre</div>
+          <ul class="mem-features">
+            <li><span class="check">✓</span>Registro de mascota</li>
+            <li><span class="check">✓</span>Evaluación nutricional inicial</li>
+            <li><span class="check">✓</span>Recomendaciones generales</li>
+            <li><span class="check">✓</span>Acceso a artículos del blog</li>
+            <li><span class="check" style="background:#f0f0f0;color:#bbb;">✗</span><span style="color:#bbb;">Seguimiento mensual</span></li>
+            <li><span class="check" style="background:#f0f0f0;color:#bbb;">✗</span><span style="color:#bbb;">Asesoría por WhatsApp</span></li>
+          </ul>
+          <a href="registro.html" class="btn-secondary" style="width:100%;text-align:center;display:block;">Empezar gratis</a>
+        </div>
+
+        <!-- BASIC -->
+        <div class="mem-card" style="border-color:var(--light-teal);">
+          <div class="mem-plan" style="color:var(--teal);">🌿 Cuidador</div>
+          <div class="mem-price">Bs. <sup>1</sup>50</div>
+          <div class="mem-period">por mes</div>
+          <ul class="mem-features">
+            <li><span class="check">✓</span>Todo lo del plan Explorador</li>
+            <li><span class="check">✓</span>Plan nutricional personalizado</li>
+            <li><span class="check">✓</span>Seguimiento mensual</li>
+            <li><span class="check">✓</span>2 consultas WhatsApp/mes</li>
+            <li><span class="check">✓</span>Informe mensual de evolución</li>
+            <li><span class="check" style="background:#f0f0f0;color:#bbb;">✗</span><span style="color:#bbb;">Atención prioritaria</span></li>
+          </ul>
+          <a href="registro.html" class="btn-secondary" style="width:100%;text-align:center;display:block;">Unirme ahora</a>
+        </div>
+
+        <!-- PRO (FEATURED) -->
+        <div class="mem-card featured">
+          <div class="mem-plan" style="color:var(--orange);">⭐ Bienestar Pro</div>
+          <div class="mem-price">Bs. <sup>2</sup>80</div>
+          <div class="mem-period">por mes</div>
+          <ul class="mem-features">
+            <li><span class="check">✓</span>Todo lo del plan Cuidador</li>
+            <li><span class="check">✓</span>Seguimiento quincenal</li>
+            <li><span class="check">✓</span>WhatsApp ilimitado</li>
+            <li><span class="check">✓</span>Plan de suplementación incluido</li>
+            <li><span class="check">✓</span>Atención prioritaria 24h</li>
+            <li><span class="check">✓</span>Descuento 15% en productos</li>
+          </ul>
+          <a href="registro.html" class="btn-primary" style="width:100%;text-align:center;display:block;">¡Lo quiero!</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="mem-card" style="border-color:var(--orange);">
+          <div class="mem-plan" style="color:var(--orange);">👑 Premium Elite</div>
+          <div class="mem-price">Bs. <sup>4</sup>50</div>
+          <div class="mem-period">por mes</div>
+          <ul class="mem-features">
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Todo lo del plan Pro</li>
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Seguimiento semanal</li>
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Videoconsulta mensual</li>
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Análisis de microbiota</li>
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Descuento 25% en productos</li>
+            <li><span class="check" style="background:rgba(254,130,2,0.15);color:var(--orange);">✓</span>Acceso anticipado a novedades</li>
+          </ul>
+          <a href="registro.html" class="btn-primary" style="background:var(--orange);width:100%;text-align:center;display:block;">Ser Premium</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLA COMPARATIVA -->
+  <section style="background:var(--cream);">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Comparación detallada</span>
+        <h2>¿Qué incluye <span>cada plan</span>?</h2>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="th-free" style="text-align:left;padding:20px;">Característica</th>
+              <th class="th-free">🐾 Explorador</th>
+              <th class="th-basic">🌿 Cuidador</th>
+              <th class="th-pro">⭐ Pro</th>
+              <th class="th-premium">👑 Elite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registro de mascota</td>
+              <td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Evaluación nutricional inicial</td>
+              <td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Plan personalizado completo</td>
+              <td class="check-no">✗</td><td class="check-yes">✓</td><td class="check-yes">✓</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Seguimiento periódico</td>
+              <td class="check-no">✗</td><td style="text-align:center;color:var(--teal);font-weight:700;">Mensual</td><td style="text-align:center;color:var(--teal);font-weight:700;">Quincenal</td><td style="text-align:center;color:var(--orange);font-weight:700;">Semanal</td>
+            </tr>
+            <tr>
+              <td>Consultas WhatsApp</td>
+              <td class="check-no">✗</td><td style="text-align:center;font-weight:700;">2/mes</td><td style="text-align:center;color:var(--teal);font-weight:700;">Ilimitado</td><td style="text-align:center;color:var(--orange);font-weight:700;">Ilimitado</td>
+            </tr>
+            <tr>
+              <td>Plan de suplementación</td>
+              <td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Atención prioritaria</td>
+              <td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Videoconsulta</td>
+              <td class="check-no">✗</td><td class="check-no">✗</td><td class="check-no">✗</td><td class="check-yes">✓</td>
+            </tr>
+            <tr>
+              <td>Descuento en productos</td>
+              <td class="check-no">✗</td><td class="check-no">✗</td><td style="text-align:center;font-weight:700;">15%</td><td style="text-align:center;color:var(--orange);font-weight:700;">25%</td>
+            </tr>
+            <tr>
+              <td style="font-weight:800;">Precio mensual</td>
+              <td style="text-align:center;font-weight:800;">Gratis</td>
+              <td style="text-align:center;font-weight:800;color:var(--teal);">Bs. 150</td>
+              <td style="text-align:center;font-weight:800;color:var(--teal);">Bs. 280</td>
+              <td style="text-align:center;font-weight:800;color:var(--orange);">Bs. 450</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOYALTY / NIVELES -->
+  <section style="background:var(--teal);color:white;text-align:center;">
+    <div class="container" style="max-width:800px;">
+      <span style="font-size:48px;display:block;margin-bottom:16px;">🏅</span>
+      <h2 style="font-family:'Fredoka One',cursive;font-size:2.4rem;margin-bottom:16px;">Programa de Lealtad</h2>
+      <p style="font-size:17px;opacity:0.9;margin-bottom:36px;">Cuanto más tiempo seas miembro, más beneficios acumulas. Tu fidelidad tiene recompensa.</p>
+      <div class="loyalty-levels">
+        <div class="loyalty-badge" style="background:rgba(255,255,255,0.15);">🥉 Bronce · 1-3 meses</div>
+        <div class="loyalty-badge" style="background:rgba(255,255,255,0.25);">🥈 Plata · 4-6 meses</div>
+        <div class="loyalty-badge" style="background:var(--orange);">🥇 Oro · 7-12 meses</div>
+        <div class="loyalty-badge" style="background:#1a1a1a;">💎 Diamante · +12 meses</div>
+      </div>
+      <p style="opacity:0.85;font-size:15px;">Los miembros Oro y Diamante reciben sorpresas especiales, productos exclusivos y reconocimiento en nuestra comunidad.</p>
+    </div>
+  </section>
+
+  <!-- FAQ MEMBRESÍA -->
+  <section style="background:var(--cream);">
+    <div class="container" style="max-width:780px;">
+      <div class="section-header">
+        <span class="eyebrow">Dudas sobre la membresía</span>
+        <h2>Preguntas <span>frecuentes</span></h2>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">¿Puedo cancelar mi membresía en cualquier momento? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Sí. Las membresías son flexibles. Puedes cancelar o cambiar de plan cuando lo desees, sin penalizaciones. Tu plan se mantiene activo hasta el final del período pagado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">¿Cómo pago la membresía? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Los pagos se coordinan directamente por WhatsApp con el especialista. Aceptamos transferencias bancarias y pagos en efectivo en La Paz.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">¿Puedo tener varias mascotas en el mismo plan? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Cada mascota requiere su propio plan nutricional. Sin embargo, ofrecemos descuentos especiales para familias con múltiples mascotas. ¡Consulta por WhatsApp!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">¿Cuándo empiezan los beneficios? <span class="faq-icon">+</span></div>
+        <div class="faq-answer">Los beneficios se activan de inmediato al confirmarse el registro y el pago. En menos de 24 horas recibirás la bienvenida y comenzaremos con tu plan.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA REGISTRO -->
+  <section style="background:var(--orange);text-align:center;padding:80px 24px;">
+    <h2 style="font-family:'Fredoka One',cursive;font-size:clamp(1.8rem,4vw,3rem);color:white;margin-bottom:16px;">¡Empieza hoy con el plan Explorador gratuito!</h2>
+    <p style="color:rgba(255,255,255,0.9);font-size:18px;margin-bottom:36px;">Sin compromiso. Registra a tu mascota y descubre lo que PET Bites puede hacer por ella.</p>
+    <a href="registro.html" class="btn-secondary" style="border-color:white;color:white;font-size:17px;">🐾 Registrar mi mascota gratis →</a>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

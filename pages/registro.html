@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro · PET Bites</title>
+  <meta name="description" content="Registra a tu mascota y comienza su plan nutricional personalizado con PET Bites." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <style>
+    .reg-tabs {
+      display: flex;
+      gap: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid var(--light-teal);
+      margin-bottom: 32px;
+    }
+    .reg-tab {
+      flex: 1;
+      padding: 14px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+      background: var(--cream);
+      border: none;
+      transition: all 0.3s;
+      color: #666;
+    }
+    .reg-tab.active {
+      background: var(--teal);
+      color: white;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .progress-bar {
+      height: 6px;
+      background: var(--light-teal);
+      border-radius: 3px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--teal);
+      border-radius: 3px;
+      transition: width 0.4s;
+    }
+  </style>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+<div id="wa-placeholder"></div>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="background:linear-gradient(135deg, #1a1a1a 0%, #333 100%);">
+    <span style="font-size:56px;display:block;margin-bottom:16px;">🐾</span>
+    <h1>Registra a tu Mascota</h1>
+    <p>Completa el formulario y en menos de 24 horas recibirás tu plan nutricional personalizado.</p>
+  </section>
+
+  <!-- REGISTRO FORM -->
+  <section style="background:var(--cream);">
+    <div class="container" style="max-width:820px;">
+
+      <!-- Beneficios rápidos -->
+      <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:48px;">
+        <span class="benefit-pill">⚡ Gratis para empezar</span>
+        <span class="benefit-pill">📱 Respuesta en 24h</span>
+        <span class="benefit-pill">🔬 Plan científico</span>
+        <span class="benefit-pill">❤️ Personalizado</span>
+      </div>
+
+      <!-- TABS -->
+      <div class="reg-tabs">
+        <button class="reg-tab active" onclick="showTab('dueno')">👤 Paso 1: Tus datos</button>
+        <button class="reg-tab" onclick="showTab('mascota')">🐾 Paso 2: Tu mascota</button>
+        <button class="reg-tab" onclick="showTab('plan')">⭐ Paso 3: Plan</button>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress" style="width:33%"></div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="alert alert-success alert-hidden" id="success-alert">
+        🎉 ¡Registro exitoso! Te contactaremos por WhatsApp en menos de 24 horas con tu plan nutricional personalizado.
+      </div>
+
+      <form id="reg-form">
+
+        <!-- TAB 1: DATOS DEL DUEÑO -->
+        <div class="tab-content active form-container" id="tab-dueno">
+          <h2 style="font-family:'Fredoka One',cursive;font-size:1.8rem;margin-bottom:8px;color:var(--teal);">👤 Tus datos</h2>
+          <p style="color:#777;margin-bottom:28px;">Necesitamos saber quién eres para poder contactarte.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre *</label>
+              <input type="text" placeholder="Ej: María García" required />
+            </div>
+            <div class="form-group">
+              <label>Apellido *</label>
+              <input type="text" placeholder="Ej: López" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>WhatsApp *</label>
+              <input type="tel" placeholder="+591 7XXXXXXX" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="tu@email.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Ciudad / Zona *</label>
+            <input type="text" placeholder="Ej: La Paz - Miraflores" required />
+          </div>
+
+          <div style="text-align:right;margin-top:8px;">
+            <button type="button" class="btn-primary" onclick="nextTab('mascota', 66)">Siguiente: Mi mascota →</button>
+          </div>
+        </div>
+
+        <!-- TAB 2: DATOS DE LA MASCOTA -->
+        <div class="tab-content form-container" id="tab-mascota">
+          <h2 style="font-family:'Fredoka One',cursive;font-size:1.8rem;margin-bottom:8px;color:var(--teal);">🐾 Cuéntanos sobre tu mascota</h2>
+          <p style="color:#777;margin-bottom:28px;">Esta información es clave para diseñar su plan nutricional.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre de la mascota *</label>
+              <input type="text" placeholder="Ej: Max, Luna..." required />
+            </div>
+            <div class="form-group">
+              <label>Especie *</label>
+              <select required>
+                <option value="">Selecciona...</option>
+                <option>🐕 Perro</option>
+                <option>🐱 Gato</option>
+                <option>🐾 Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Raza</label>
+              <input type="text" placeholder="Ej: Golden Retriever, mestizo..." />
+            </div>
+            <div class="form-group">
+              <label>Sexo *</label>
+              <select required>
+                <option value="">Selecciona...</option>
+                <option>Macho</option>
+                <option>Hembra</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Edad</label>
+              <input type="text" placeholder="Ej: 3 años, 8 meses..." />
+            </div>
+            <div class="form-group">
+              <label>Peso aproximado</label>
+              <input type="text" placeholder="Ej: 12 kg" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Nivel de actividad física *</label>
+            <select required>
+              <option value="">Selecciona...</option>
+              <option>Muy activo (paseos diarios largos, juego intenso)</option>
+              <option>Moderado (paseos regulares, juego ocasional)</option>
+              <option>Sedentario (poco ejercicio, principalmente en casa)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>¿Tiene alguna condición de salud especial?</label>
+            <textarea placeholder="Ej: diabetes, alergias, problemas digestivos, sobrepeso, esterilizado/castrado, etc. Si no tiene ninguna, escribe 'Ninguna'."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>¿Qué come actualmente?</label>
+            <textarea placeholder="Ej: croquetas marca X, comida casera de pollo y arroz, balanceado premium..." style="min-height:80px;"></textarea>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;margin-top:8px;flex-wrap:wrap;gap:12px;">
+            <button type="button" class="btn-secondary" onclick="nextTab('dueno', 33)">← Atrás</button>
+            <button type="button" class="btn-primary" onclick="nextTab('plan', 100)">Siguiente: Elegir plan →</button>
+          </div>
+        </div>
+
+        <!-- TAB 3: PLAN -->
+        <div class="tab-content form-container" id="tab-plan">
+          <h2 style="font-family:'Fredoka One',cursive;font-size:1.8rem;margin-bottom:8px;color:var(--teal);">⭐ Elige tu plan inicial</h2>
+          <p style="color:#777;margin-bottom:28px;">Puedes cambiar o mejorar tu plan en cualquier momento.</p>
+
+          <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:28px;">
+            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--light-teal);border-radius:16px;cursor:pointer;transition:all 0.3s;" onmouseenter="this.style.borderColor='var(--teal)'" onmouseleave="this.style.borderColor='var(--light-teal)'">
+              <input type="radio" name="plan" value="explorador" style="margin-top:4px;accent-color:var(--teal);" checked />
+              <div>
+                <div style="font-weight:800;font-size:16px;">🐾 Explorador — Gratis</div>
+                <div style="color:#777;font-size:14px;margin-top:4px;">Evaluación inicial + recomendaciones generales. Sin costo.</div>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--light-teal);border-radius:16px;cursor:pointer;transition:all 0.3s;" onmouseenter="this.style.borderColor='var(--teal)'" onmouseleave="this.style.borderColor='var(--light-teal)'">
+              <input type="radio" name="plan" value="cuidador" style="margin-top:4px;accent-color:var(--teal);" />
+              <div>
+                <div style="font-weight:800;font-size:16px;">🌿 Cuidador — Bs. 150/mes</div>
+                <div style="color:#777;font-size:14px;margin-top:4px;">Plan personalizado + seguimiento mensual + 2 consultas WhatsApp.</div>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--orange);border-radius:16px;cursor:pointer;background:rgba(254,130,2,0.04);transition:all 0.3s;" onmouseenter="this.style.background='rgba(254,130,2,0.08)'" onmouseleave="this.style.background='rgba(254,130,2,0.04)'">
+              <input type="radio" name="plan" value="pro" style="margin-top:4px;accent-color:var(--orange);" />
+              <div>
+                <div style="font-weight:800;font-size:16px;">⭐ Bienestar Pro — Bs. 280/mes <span style="background:var(--orange);color:white;font-size:11px;padding:3px 8px;border-radius:8px;font-weight:700;">MÁS POPULAR</span></div>
+                <div style="color:#777;font-size:14px;margin-top:4px;">Todo lo anterior + WhatsApp ilimitado + suplementación + atención prioritaria.</div>
+              </div>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--light-teal);border-radius:16px;cursor:pointer;transition:all 0.3s;" onmouseenter="this.style.borderColor='var(--orange)'" onmouseleave="this.style.borderColor='var(--light-teal)'">
+              <input type="radio" name="plan" value="elite" style="margin-top:4px;accent-color:var(--orange);" />
+              <div>
+                <div style="font-weight:800;font-size:16px;">👑 Premium Elite — Bs. 450/mes</div>
+                <div style="color:#777;font-size:14px;margin-top:4px;">Experiencia completa: seguimiento semanal, videoconsulta y 25% descuento.</div>
+              </div>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label>¿Cómo nos conociste?</label>
+            <select>
+              <option value="">Selecciona...</option>
+              <option>Recomendación de amigo/familiar</option>
+              <option>Redes sociales</option>
+              <option>WhatsApp</option>
+              <option>SMART FIT Nutrition & Health</option>
+              <option>Búsqueda en internet</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>¿Tienes algún comentario adicional?</label>
+            <textarea placeholder="Cuéntanos algo más sobre tu mascota o lo que esperas del servicio..." style="min-height:80px;"></textarea>
+          </div>
+
+          <div style="background:var(--light-teal);border-radius:16px;padding:20px;margin-bottom:24px;">
+            <p style="font-size:14px;color:var(--teal);font-weight:700;">📱 Después de registrarte, nuestro especialista te contactará por WhatsApp al número que proporcionaste para confirmar tu inscripción y dar los próximos pasos.</p>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <button type="button" class="btn-secondary" onclick="nextTab('mascota', 66)">← Atrás</button>
+            <button type="submit" class="btn-primary" style="font-size:17px;">🐾 ¡Completar registro!</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- GARANTÍA -->
+  <section style="background:var(--teal);text-align:center;padding:60px 24px;">
+    <div class="container" style="max-width:700px;">
+      <span style="font-size:48px;display:block;margin-bottom:16px;">🛡️</span>
+      <h2 style="font-family:'Fredoka One',cursive;font-size:2rem;color:white;margin-bottom:16px;">Sin riesgo, con garantía</h2>
+      <p style="color:var(--light-teal);font-size:17px;line-height:1.8;">Empieza con el plan gratuito sin ningún compromiso. Si no estás satisfecho con nuestro servicio en los primeros 7 días de cualquier plan pago, te devolvemos tu dinero.</p>
+    </div>
+  </section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.reg-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tabId).classList.add('active');
+    const tabs = ['dueno', 'mascota', 'plan'];
+    const idx = tabs.indexOf(tabId);
+    document.querySelectorAll('.reg-tab')[idx].classList.add('active');
+  }
+
+  function nextTab(tabId, progress) {
+    showTab(tabId);
+    document.getElementById('progress').style.width = progress + '%';
+    window.scrollTo({ top: 300, behavior: 'smooth' });
+  }
+
+  document.getElementById('reg-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('success-alert').classList.remove('alert-hidden');
+    document.getElementById('reg-form').reset();
+    showTab('dueno');
+    document.getElementById('progress').style.width = '33%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      document.getElementById('success-alert').classList.add('alert-hidden');
+    }, 8000);
+  });
+</script>
+</body>
+</html>
