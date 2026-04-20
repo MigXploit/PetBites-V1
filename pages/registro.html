@@ -116,13 +116,29 @@
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" placeholder="tu@email.com" />
+              <input type="email" placeholder="tu@email.com" required />
             </div>
           </div>
 
-          <div class="form-group">
-            <label>Ciudad / Zona *</label>
-            <input type="text" placeholder="Ej: La Paz - Miraflores" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ciudad *</label>
+              <input type="text" placeholder="Ej: La Paz" required />
+            </div>
+            <div class="form-group">
+              <label>Zona *</label>
+              <input type="text" placeholder="Ej: Miraflores" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Calle *</label>
+              <input type="text" placeholder="Ej: Av. Busch" required />
+            </div>
+            <div class="form-group">
+              <label>Número *</label>
+              <input type="text" placeholder="Ej: Nro 123" required />
+            </div>
           </div>
 
           <div style="text-align:right;margin-top:8px;">
@@ -154,7 +170,7 @@
           <div class="form-row">
             <div class="form-group">
               <label>Raza</label>
-              <input type="text" placeholder="Ej: Golden Retriever, mestizo..." />
+              <input type="text" placeholder="Ej: Golden Retriever, mestizo..." required />
             </div>
             <div class="form-group">
               <label>Sexo *</label>
@@ -166,35 +182,13 @@
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label>Edad</label>
-              <input type="text" placeholder="Ej: 3 años, 8 meses..." />
-            </div>
-            <div class="form-group">
-              <label>Peso aproximado</label>
-              <input type="text" placeholder="Ej: 12 kg" />
-            </div>
+          <div class="form-group">
+            <label>Edad</label>
+            <input type="text" placeholder="Ej: 3 años, 8 meses..." required />
           </div>
 
-          <div class="form-group">
-            <label>Nivel de actividad física *</label>
-            <select required>
-              <option value="">Selecciona...</option>
-              <option>Muy activo (paseos diarios largos, juego intenso)</option>
-              <option>Moderado (paseos regulares, juego ocasional)</option>
-              <option>Sedentario (poco ejercicio, principalmente en casa)</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>¿Tiene alguna condición de salud especial?</label>
-            <textarea placeholder="Ej: diabetes, alergias, problemas digestivos, sobrepeso, esterilizado/castrado, etc. Si no tiene ninguna, escribe 'Ninguna'."></textarea>
-          </div>
-
-          <div class="form-group">
-            <label>¿Qué come actualmente?</label>
-            <textarea placeholder="Ej: croquetas marca X, comida casera de pollo y arroz, balanceado premium..." style="min-height:80px;"></textarea>
+          <div style="background:var(--light-teal);border-radius:16px;padding:20px;margin-bottom:24px;margin-top:16px;">
+            <p style="font-size:14px;color:var(--teal);font-weight:700;">📱 Los detalles sobre el peso, actividad física, condiciones de salud y alimentación actual serán solicitados directamente por WhatsApp para brindarte una atención más personalizada.</p>
           </div>
 
           <div style="display:flex;justify-content:space-between;margin-top:8px;flex-wrap:wrap;gap:12px;">
@@ -216,32 +210,18 @@
                 <div style="color:#777;font-size:14px;margin-top:4px;">Evaluación inicial + recomendaciones generales. Sin costo.</div>
               </div>
             </label>
-            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--light-teal);border-radius:16px;cursor:pointer;transition:all 0.3s;" onmouseenter="this.style.borderColor='var(--teal)'" onmouseleave="this.style.borderColor='var(--light-teal)'">
-              <input type="radio" name="plan" value="cuidador" style="margin-top:4px;accent-color:var(--teal);" />
-              <div>
-                <div style="font-weight:800;font-size:16px;">🌿 Cuidador — Bs. 150/mes</div>
-                <div style="color:#777;font-size:14px;margin-top:4px;">Plan personalizado + seguimiento mensual + 2 consultas WhatsApp.</div>
-              </div>
-            </label>
             <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--orange);border-radius:16px;cursor:pointer;background:rgba(254,130,2,0.04);transition:all 0.3s;" onmouseenter="this.style.background='rgba(254,130,2,0.08)'" onmouseleave="this.style.background='rgba(254,130,2,0.04)'">
-              <input type="radio" name="plan" value="pro" style="margin-top:4px;accent-color:var(--orange);" />
+              <input type="radio" name="plan" value="personalizado" style="margin-top:4px;accent-color:var(--orange);" />
               <div>
-                <div style="font-weight:800;font-size:16px;">⭐ Bienestar Pro — Bs. 280/mes <span style="background:var(--orange);color:white;font-size:11px;padding:3px 8px;border-radius:8px;font-weight:700;">MÁS POPULAR</span></div>
-                <div style="color:#777;font-size:14px;margin-top:4px;">Todo lo anterior + WhatsApp ilimitado + suplementación + atención prioritaria.</div>
-              </div>
-            </label>
-            <label style="display:flex;align-items:flex-start;gap:16px;padding:20px;border:2px solid var(--light-teal);border-radius:16px;cursor:pointer;transition:all 0.3s;" onmouseenter="this.style.borderColor='var(--orange)'" onmouseleave="this.style.borderColor='var(--light-teal)'">
-              <input type="radio" name="plan" value="elite" style="margin-top:4px;accent-color:var(--orange);" />
-              <div>
-                <div style="font-weight:800;font-size:16px;">👑 Premium Elite — Bs. 450/mes</div>
-                <div style="color:#777;font-size:14px;margin-top:4px;">Experiencia completa: seguimiento semanal, videoconsulta y 25% descuento.</div>
+                <div style="font-weight:800;font-size:16px;">⭐ Personalizado — Bs. 700/mes</div>
+                <div style="color:#777;font-size:14px;margin-top:4px;">Atención prioritaria, consultas ilimitadas, plan de suplementación y personalización de alimentación.</div>
               </div>
             </label>
           </div>
 
           <div class="form-group">
             <label>¿Cómo nos conociste?</label>
-            <select>
+            <select required>
               <option value="">Selecciona...</option>
               <option>Recomendación de amigo/familiar</option>
               <option>Redes sociales</option>
@@ -254,7 +234,7 @@
 
           <div class="form-group">
             <label>¿Tienes algún comentario adicional?</label>
-            <textarea placeholder="Cuéntanos algo más sobre tu mascota o lo que esperas del servicio..." style="min-height:80px;"></textarea>
+            <textarea placeholder="Cuéntanos algo más sobre tu mascota o lo que esperas del servicio..." style="min-height:80px;" required></textarea>
           </div>
 
           <div style="background:var(--light-teal);border-radius:16px;padding:20px;margin-bottom:24px;">
