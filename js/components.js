@@ -20,7 +20,7 @@ const NAV_HTML = `
     </a>
     <ul class="nav-links">
       <li><a href="../index.html">Inicio</a></li>
-      <li><a href="nosotros.html">Nosotros</a></li>
+      <li><a href="nosotros.html">Nosotroooos</a></li>
       <li><a href="servicios.html">Servicios</a></li>
       <li><a href="membresia.html">Membresía</a></li>
       <li><a href="contacto.html">Contacto</a></li>
