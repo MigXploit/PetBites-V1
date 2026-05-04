@@ -61,26 +61,10 @@ function setActiveNav() {
   });
 }
 
-// --- Form simulation ---
-function initForms() {
-  document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const alert = form.querySelector('.alert');
-      if (alert) {
-        alert.classList.remove('alert-hidden');
-        setTimeout(() => alert.classList.add('alert-hidden'), 5000);
-      }
-      form.reset();
-    });
-  });
-}
-
 // --- Init all ---
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initFAQ();
   initScrollAnimations();
   setActiveNav();
-  initForms();
 });

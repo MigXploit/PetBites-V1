@@ -48,6 +48,10 @@
       transition: width 0.4s;
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="Registro · PET Bites">
+  <meta property="og:description" content="Registra a tu mascota y comienza su plan nutricional personalizado.">
+  <meta property="og:type" content="website">
 </head>
 <body>
 
@@ -241,6 +245,8 @@
             <p style="font-size:14px;color:var(--teal);font-weight:700;">📱 Después de registrarte, nuestro especialista te contactará por WhatsApp al número que proporcionaste para confirmar tu inscripción y dar los próximos pasos.</p>
           </div>
 
+          <div id="captcha-container"></div>
+
           <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
             <button type="button" class="btn-secondary" onclick="nextTab('mascota', 66)">← Atrás</button>
             <button type="submit" class="btn-primary" style="font-size:17px;">🐾 ¡Completar registro!</button>
@@ -282,17 +288,194 @@
     window.scrollTo({ top: 300, behavior: 'smooth' });
   }
 
-  document.getElementById('reg-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    document.getElementById('success-alert').classList.remove('alert-hidden');
-    document.getElementById('reg-form').reset();
-    showTab('dueno');
-    document.getElementById('progress').style.width = '33%';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      document.getElementById('success-alert').classList.add('alert-hidden');
-    }, 8000);
+  // Form submit handled by validation script above
+</script>
+
+<script>
+// ===== VALIDACIÓN REGEX PARA BOLIVIA =====
+const regexPatterns = {
+  nombre: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/,
+  apellido: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}$/,
+  whatsapp: /^\+?591[67]\d{7}$/,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+  ciudad: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,40}$/,
+  zona: /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\-.]{2,50}$/,
+  calle: /^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\-.]{2,60}$/,
+  numero: /^[A-Za-z0-9\-\s\/]{1,20}$/,
+  mascotaNombre: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,30}$/,
+  raza: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,40}$/,
+  edad: /^[0-9]+\s?(años?|meses?|año|mes)$/i
+};
+
+function validateField(input, pattern, errorMsg) {
+  let parent = input.closest('.form-group');
+  if (!parent) parent = input.parentElement;
+  let errorEl = parent.querySelector('.field-error');
+  if (!errorEl) {
+    errorEl = document.createElement('span');
+    errorEl.className = 'field-error';
+    errorEl.style.cssText = 'color:#e74c3c;font-size:12px;font-weight:700;margin-top:4px;display:block;';
+    parent.appendChild(errorEl);
+  }
+  const value = input.value.trim();
+  if (value === '' && input.hasAttribute('required')) {
+    errorEl.textContent = 'Este campo es obligatorio';
+    input.style.borderColor = '#e74c3c';
+    return false;
+  }
+  if (value !== '' && !pattern.test(value)) {
+    errorEl.textContent = errorMsg;
+    input.style.borderColor = '#e74c3c';
+    return false;
+  }
+  errorEl.textContent = '';
+  input.style.borderColor = '';
+  return true;
+}
+
+function initValidation() {
+  const form = document.getElementById('reg-form');
+  if (!form) return;
+
+  const inputs = form.querySelectorAll('input, select, textarea');
+
+  inputs.forEach(input => {
+    input.addEventListener('blur', () => {
+      const label = input.closest('.form-group')?.querySelector('label')?.textContent?.toLowerCase() || '';
+
+      if (label.includes('nombre') && label.includes('mascota')) {
+        validateField(input, regexPatterns.mascotaNombre, 'Solo letras y espacios (2-30 caracteres)');
+      } else if (label.includes('nombre')) {
+        validateField(input, regexPatterns.nombre, 'Solo letras y espacios (2-50 caracteres)');
+      } else if (label.includes('apellido')) {
+        validateField(input, regexPatterns.apellido, 'Solo letras y espacios (2-50 caracteres)');
+      } else if (label.includes('whatsapp')) {
+        validateField(input, regexPatterns.whatsapp, 'Formato boliviano: +5917XXXXXXX o 5916XXXXXXX');
+      } else if (label.includes('email')) {
+        validateField(input, regexPatterns.email, 'Ingresa un email válido');
+      } else if (label.includes('ciudad')) {
+        validateField(input, regexPatterns.ciudad, 'Solo letras (2-40 caracteres)');
+      } else if (label.includes('zona')) {
+        validateField(input, regexPatterns.zona, 'Caracteres válidos (2-50)');
+      } else if (label.includes('calle')) {
+        validateField(input, regexPatterns.calle, 'Caracteres válidos (2-60)');
+      } else if (label.includes('número')) {
+        validateField(input, regexPatterns.numero, 'Número válido (1-20 caracteres)');
+      } else if (label.includes('raza')) {
+        validateField(input, regexPatterns.raza, 'Solo letras y espacios (2-40 caracteres)');
+      } else if (label.includes('edad')) {
+        validateField(input, regexPatterns.edad, 'Formato: "3 años" o "8 meses"');
+      }
+    });
+
+    input.addEventListener('input', () => {
+      input.style.borderColor = '';
+      const err = input.closest('.form-group')?.querySelector('.field-error');
+      if (err) err.textContent = '';
+    });
   });
+
+  // Form submit validation
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let allValid = true;
+
+    inputs.forEach(input => {
+      const label = input.closest('.form-group')?.querySelector('label')?.textContent?.toLowerCase() || '';
+      let valid = true;
+
+      if (label.includes('nombre') && label.includes('mascota')) {
+        valid = validateField(input, regexPatterns.mascotaNombre, 'Solo letras y espacios (2-30 caracteres)');
+      } else if (label.includes('nombre')) {
+        valid = validateField(input, regexPatterns.nombre, 'Solo letras y espacios (2-50 caracteres)');
+      } else if (label.includes('apellido')) {
+        valid = validateField(input, regexPatterns.apellido, 'Solo letras y espacios (2-50 caracteres)');
+      } else if (label.includes('whatsapp')) {
+        valid = validateField(input, regexPatterns.whatsapp, 'Formato boliviano: +5917XXXXXXX o 5916XXXXXXX');
+      } else if (label.includes('email')) {
+        valid = validateField(input, regexPatterns.email, 'Ingresa un email válido');
+      } else if (label.includes('ciudad')) {
+        valid = validateField(input, regexPatterns.ciudad, 'Solo letras (2-40 caracteres)');
+      } else if (label.includes('zona')) {
+        valid = validateField(input, regexPatterns.zona, 'Caracteres válidos (2-50)');
+      } else if (label.includes('calle')) {
+        valid = validateField(input, regexPatterns.calle, 'Caracteres válidos (2-60)');
+      } else if (label.includes('número')) {
+        valid = validateField(input, regexPatterns.numero, 'Número válido (1-20 caracteres)');
+      } else if (label.includes('raza')) {
+        valid = validateField(input, regexPatterns.raza, 'Solo letras y espacios (2-40 caracteres)');
+      } else if (label.includes('edad')) {
+        valid = validateField(input, regexPatterns.edad, 'Formato: "3 años" o "8 meses"');
+      } else if (input.hasAttribute('required') && input.value.trim() === '') {
+        valid = validateField(input, /.*/, 'Este campo es obligatorio');
+      }
+
+      if (!valid) allValid = false;
+    });
+
+    // Check captcha
+    const captchaInput = document.getElementById('captcha-input');
+    const captchaError = document.getElementById('captcha-error');
+    if (captchaInput) {
+      const expected = document.getElementById('captcha-expected')?.value;
+      if (captchaInput.value.trim().toLowerCase() !== expected) {
+        captchaError.textContent = '❌ Respuesta incorrecta. Inténtalo de nuevo.';
+        captchaError.style.display = 'block';
+        allValid = false;
+      } else {
+        captchaError.style.display = 'none';
+      }
+    }
+
+    if (allValid) {
+      document.getElementById('success-alert').classList.remove('alert-hidden');
+      form.reset();
+      showTab('dueno');
+      document.getElementById('progress').style.width = '33%';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      generateCaptcha(); // regenerate
+      setTimeout(() => {
+        document.getElementById('success-alert').classList.add('alert-hidden');
+      }, 8000);
+    } else {
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+  });
+}
+
+// ===== CAPTCHA =====
+function generateCaptcha() {
+  const ops = ['+', '-'];
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  let a = Math.floor(Math.random() * 10) + 1;
+  let b = Math.floor(Math.random() * 10) + 1;
+  if (op === '-' && a < b) [a, b] = [b, a];
+  const result = op === '+' ? a + b : a - b;
+
+  const container = document.getElementById('captcha-container');
+  if (!container) return;
+
+  container.innerHTML = `
+    <div style="background:var(--cream);border-radius:16px;padding:24px;margin-bottom:20px;border:2px solid var(--light-teal);">
+      <label style="font-weight:700;margin-bottom:12px;display:block;">🤖 Verificación de seguridad</label>
+      <p style="color:#666;font-size:14px;margin-bottom:16px;">Resuelve esta operación para confirmar que no eres un robot:</p>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div style="background:var(--teal);color:white;padding:12px 24px;border-radius:12px;font-family:'Fredoka One',cursive;font-size:24px;letter-spacing:2px;">
+          ${a} ${op} ${b} = ?
+        </div>
+        <input type="number" id="captcha-input" placeholder="Respuesta" required 
+          style="width:120px;padding:12px 16px;border:2px solid #e5e5e5;border-radius:12px;font-size:16px;text-align:center;" />
+        <input type="hidden" id="captcha-expected" value="${result}" />
+      </div>
+      <span id="captcha-error" style="color:#e74c3c;font-size:12px;font-weight:700;margin-top:8px;display:none;"></span>
+    </div>
+  `;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initValidation();
+  generateCaptcha();
+});
 </script>
 </body>
 </html>

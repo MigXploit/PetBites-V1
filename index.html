@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-  <!--segundo cambio de la pagina
-  21/04/2026, modificado el registro, reseñas
-  index, nosotros-->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +10,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
   <style>
     /* Index-specific overrides for nav links (root level) MiguelBustillos*/
-    .nav-links a[href="pages/nosotros.html"] { display:none; }
+    /* Nav links visible - Nosotros enabled */
     .index-nav a { }
   </style>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐾%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="PET Bites · Nutrición Personalizada para Mascotas">
+  <meta property="og:description" content="Planes nutricionales personalizados para perros y gatos. La Paz, Bolivia.">
+  <meta property="og:image" content="img/nutricion.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pet-bites-v1.vercel.app">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PET Bites",
+    "description": "Nutrición personalizada para mascotas en La Paz, Bolivia",
+    "url": "https://pet-bites-v1.vercel.app",
+    "telephone": "+591-78855799",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. José Manuel Chinchilla",
+      "addressLocality": "La Paz",
+      "addressCountry": "BO"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "SMART FIT Nutrition & Health"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -38,7 +62,7 @@
       </div>
       <div class="hero-visual animate-in delay-2">
         <div class="hero-card">
-          <img src="img/nutricion.jpeg" alt="Nutrición PetBites" style="width:140px; height:140px; border-radius:50%; object-fit:cover; margin: 0 auto 16px; display: block; border: 4px solid var(--light-teal);" />
+          <img src="img/nutricion.jpeg" alt="Nutrición PetBites" loading="lazy" style="width:140px; height:140px; border-radius:50%; object-fit:cover; margin: 0 auto 16px; display: block; border: 4px solid var(--light-teal);" />
           <h3>Plan Personalizado</h3>
           <p>Cada mascota es única. Su nutrición también debería serlo.</p>
           <div class="badge-strip">
@@ -117,17 +141,17 @@
       </div>
       <div class="card-grid">
         <div class="card">
-          <span class="card-icon">🥗</span>
+          <img src="img/gato1.jpeg" alt="Plan nutricional personalizado PET Bites" class="card-img" loading="lazy" />
           <h3>Plan Nutricional Personalizado</h3>
           <p>Diseñamos una dieta científicamente balanceada adaptada al perfil único de tu mascota: especie, raza, edad, peso, condición de salud y nivel de actividad.</p>
         </div>
         <div class="card">
-          <span class="card-icon">📊</span>
+          <img src="img/perro1.jpeg" alt="Retroalimentación continua PET Bites" class="card-img" loading="lazy" />
           <h3>Retroalimentación Continua</h3>
           <p>El dueño de PET Bites hace seguimiento personalizado de cómo se está alimentando tu mascota y brinda ajustes y recomendaciones en tiempo real.</p>
         </div>
         <div class="card">
-          <span class="card-icon">💊</span>
+          <img src="img/perro2.jpeg" alt="Suplementación guiada PET Bites" class="card-img" loading="lazy" />
           <h3>Suplementación Guiada</h3>
           <p>Es un enfoque personalizado para elegir suplementos naturales y propiedades adecuadas ademas de el sellado al vacío , con el objetivo de mejorar su energía, pelaje, digestión y longevidad, según sus necesidades específicas.</p>
         </div>
